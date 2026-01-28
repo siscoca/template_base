@@ -1,0 +1,111 @@
+/* Definición de colores primarios para cada tema */
+/* Estos colores sobrescriben la variable --primary independientemente del modo claro/oscuro */
+
+/* Mejoras Globales de UI */
+:root {
+  --radius: 0.5rem;
+}
+
+/* Transiciones suaves para controles interactivos */
+button,
+a,
+input,
+select,
+textarea,
+[role='checkbox'],
+[role='radio'],
+[role='switch'] {
+  transition-property:
+    color, background-color, border-color, text-decoration-color, fill, stroke,
+    opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Efecto táctil de click en botones (se encogen ligeramente) */
+button:active:not([disabled]) {
+  transform: scale(0.98);
+}
+
+/* Efecto Hover en botones: Sombra suave (resplandor) del color primario */
+button:hover:not([disabled]) {
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.25);
+}
+
+/* Efectos Hover en Inputs: Borde y resplandor del color primario */
+input:not([type='checkbox']):not([type='radio']):hover,
+textarea:hover,
+select:hover {
+  border-color: hsl(var(--primary) / 0.5);
+  box-shadow: 0 0 0 4px hsl(var(--primary) / 0.1);
+}
+
+/* Color de selección de texto personalizado */
+::selection {
+  background-color: hsl(var(--primary) / 0.2);
+  color: hsl(var(--primary));
+}
+
+/* Hover en Checkbox y Radio: Borde, fondo y resplandor */
+[role='checkbox']:hover,
+[role='radio']:hover {
+  border-color: hsl(var(--primary));
+  background-color: hsl(var(--primary) / 0.1);
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.4);
+}
+
+/* Hover en Switch (desactivado): Fondo y resplandor */
+[role='switch']:not([data-state='checked']):hover {
+  background-color: hsl(var(--primary) / 0.15);
+  cursor: pointer;
+  box-shadow: 0 0 15px hsl(var(--primary) / 0.4);
+}
+
+/* Hover en Switch (activado): Resplandor más fuerte */
+[role='switch'][data-state='checked']:hover {
+  box-shadow: 0 0 20px hsl(var(--primary) / 0.6);
+}
+
+/* Gris (Gray) */
+.theme-gray {
+  --primary: 215 16% 47%; /* Slate 500 */
+  --primary-foreground: 0 0% 100%;
+  --ring: 215 16% 47%;
+}
+
+/* Azul (Blue) */
+.theme-blue {
+  --primary: 221.2 83.2% 53.3%; /* Blue 600 */
+  --primary-foreground: 0 0% 100%;
+  --ring: 221.2 83.2% 53.3%;
+}
+
+/* Rojo (Red) */
+.theme-red {
+  --primary: 0 72.2% 50.6%; /* Red 600 */
+  --primary-foreground: 0 0% 100%;
+  --ring: 0 72.2% 50.6%;
+}
+
+/* Verde (Green) */
+.theme-green {
+  --primary: 142.1 76.2% 36.3%; /* Green 600 */
+  --primary-foreground: 0 0% 100%;
+  --ring: 142.1 76.2% 36.3%;
+}
+
+/* Naranja (Orange) */
+.theme-orange {
+  --primary: 24.6 95% 53.1%; /* Orange 500 */
+  --primary-foreground: 0 0% 100%;
+  --ring: 24.6 95% 53.1%;
+}
+
+/* Asegurar que el texto dentro de botones primarios sea siempre blanco para estos colores */
+.theme-gray .text-primary-foreground,
+.theme-blue .text-primary-foreground,
+.theme-red .text-primary-foreground,
+.theme-green .text-primary-foreground,
+.theme-orange .text-primary-foreground {
+  color: white;
+}

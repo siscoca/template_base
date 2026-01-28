@@ -1,0 +1,10 @@
+React
+TypeScript
+Shadcn
+Tailwindcss
+Zustand
+Vite
+Tanstack Query
+ESLint
+prettier
+pnpm
